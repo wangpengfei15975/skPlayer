@@ -1,0 +1,180 @@
+#skPlayer{
+    width:380px;
+    height:100px;
+    font-family:Helvetica,Tahoma,Arial,'Microsoft YaHei',sans-serif;
+    position:relative;
+}
+#skPlayer .picture{
+    width:80px;
+    height:80px;
+    padding:10px;
+    background-color:#825d5b;
+    float:left;
+    position:relative;
+    border-radius:7px 0 0 5px;
+}
+#skPlayer .cover{
+    width:100%;
+    transition:.37s;
+}
+#skPlayer .cover.pause{
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+#skPlayer .play-btn{
+    display:block;
+    width:60px;
+    height:60px;
+    background-color:#a26b61;
+    border-radius:50%;
+    position:absolute;
+    overflow:hidden;
+    top:50%;
+    left:0;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    z-index:2;
+    transition:.7s;
+}
+#skPlayer .play-btn.pause{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+}
+#skPlayer .play-btn span{
+    display:block;
+}
+#skPlayer .play-btn .left{
+    width:0px;
+    height:0px;
+    border-left:24px solid #f0e9dc;
+    border-top:14px solid transparent;
+    border-bottom:14px solid transparent;
+    transition:.37s;
+    position:absolute;
+    left:21px;
+    top:16px;
+}
+#skPlayer .pause .left{
+    border:14px solid #f0e9dc;
+    border-left:2px solid #f0e9dc;
+    border-right:2px solid #f0e9dc;
+}
+#skPlayer .play-btn .right{
+    width:0px;
+    height:0px;
+    border:14px solid #f0e9dc;
+    border-left:2px solid #f0e9dc;
+    border-right:2px solid #f0e9dc;
+    transition:.37s;
+    position:absolute;
+    right:21px;
+    top:-76px;
+}
+#skPlayer .pause .right{
+    right:21px;
+    top:16px;
+}
+#skPlayer .control{
+    width:250px;
+    height:75px;
+    padding:10px 15px 15px;
+    background-color:#f0e9dc;
+    float:right;
+    border-radius:0 7px 7px 0;
+    position:relative;
+}
+#skPlayer .control p{
+    margin:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+#skPlayer .control .name{
+    font-size:18px;
+    font-weight:700;
+    color:#6f5f5c;
+}
+#skPlayer .control .author{
+    font-size:15px;
+    color:#968983;
+}
+#skPlayer .control>.percent{
+    width:250px;
+    height:6px;
+    background-color:#cfbfa2;
+    border-radius:2px;
+    margin:9px 0 9px;
+    cursor:pointer;
+    overflow:hidden;
+}
+#skPlayer .control>.percent .line{
+    height:100%;
+    width:0;
+    background-color:#f0b270;
+}
+#skPlayer .control .time{
+    font-size:15px;
+    color:#796a67;
+    float:left;
+}
+#skPlayer .control .volume{
+    width:120px;
+    height:14px;
+    float:right;
+    position:relative;
+    margin-top:1px;
+}
+#skPlayer .control .volume .icon{
+    width:5px;
+    height:6px;
+    display:block;
+    position:absolute;
+    background-color:#6f5f5c;
+    top:4px;
+    left:-20px;
+
+}
+#skPlayer .control .volume .icon:after{
+    content:'';
+    display:block;
+    width:5px;
+    height:6px;
+    border-width:4px 5px;
+    border-style:solid;
+    border-color:transparent #6f5f5c transparent transparent;
+    border-top:4px solid transparent;
+    position:absolute;
+    top:-4px;
+    left:-5px;
+}
+#skPlayer .control .volume .percent{
+    position:absolute;
+    width:120px;
+    height:14px;
+    background-color:#cfbfa2;
+    border-radius:6px;
+    overflow:hidden;
+    cursor:pointer;
+    top:0;
+    left:0;
+}
+#skPlayer .control .volume .line{
+    height:100%;
+    width:30%;
+    background-color:#e38f71;
+    transition:.37s;
+}
+#skPlayer .loading{
+    transition:1s;
+    position:absolute;
+    width:100%;
+    height:100%;
+    text-align:center;
+    line-height:100px;
+    background-color:rgba(255,255,255,.9);
+    z-index:3;
+    font-size:19px;
+    color:#6f5f5c;
+}
