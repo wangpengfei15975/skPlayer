@@ -4,7 +4,7 @@
     font-family:Helvetica,Tahoma,Arial,'Microsoft YaHei',sans-serif;
     position:relative;
 }
-#skPlayer .picture{
+#skPlayer .skPlayer-picture{
     width:80px;
     height:80px;
     padding:10px;
@@ -13,15 +13,15 @@
     position:relative;
     border-radius:7px 0 0 5px;
 }
-#skPlayer .cover{
+#skPlayer .skPlayer-cover{
     width:100%;
     transition:.37s;
 }
-#skPlayer .cover.pause{
+#skPlayer .skPlayer-cover.skPlayer-pause{
     filter: blur(3px);
     -webkit-filter: blur(3px);
 }
-#skPlayer .play-btn{
+#skPlayer .skPlayer-play-btn{
     display:block;
     width:60px;
     height:60px;
@@ -36,16 +36,16 @@
     z-index:2;
     transition:.7s;
 }
-#skPlayer .play-btn.pause{
+#skPlayer .skPlayer-play-btn.skPlayer-pause{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     -webkit-transform:translate(-50%,-50%);
 }
-#skPlayer .play-btn span{
+#skPlayer .skPlayer-play-btn span{
     display:block;
 }
-#skPlayer .play-btn .left{
+#skPlayer .skPlayer-play-btn .skPlayer-left{
     width:0px;
     height:0px;
     border-left:24px solid #f0e9dc;
@@ -56,12 +56,12 @@
     left:21px;
     top:16px;
 }
-#skPlayer .pause .left{
+#skPlayer .skPlayer-pause .skPlayer-left{
     border:14px solid #f0e9dc;
     border-left:2px solid #f0e9dc;
     border-right:2px solid #f0e9dc;
 }
-#skPlayer .play-btn .right{
+#skPlayer .skPlayer-play-btn .skPlayer-right{
     width:0px;
     height:0px;
     border:14px solid #f0e9dc;
@@ -72,11 +72,11 @@
     right:21px;
     top:-76px;
 }
-#skPlayer .pause .right{
+#skPlayer .skPlayer-pause .skPlayer-right{
     right:21px;
     top:16px;
 }
-#skPlayer .control{
+#skPlayer .skPlayer-control{
     width:250px;
     height:75px;
     padding:10px 15px 15px;
@@ -85,22 +85,22 @@
     border-radius:0 7px 7px 0;
     position:relative;
 }
-#skPlayer .control p{
+#skPlayer .skPlayer-control p{
     margin:0;
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
 }
-#skPlayer .control .name{
+#skPlayer .skPlayer-control .skPlayer-name{
     font-size:18px;
     font-weight:700;
     color:#6f5f5c;
 }
-#skPlayer .control .author{
+#skPlayer .skPlayer-control .skPlayer-author{
     font-size:15px;
     color:#968983;
 }
-#skPlayer .control>.percent{
+#skPlayer .skPlayer-control>.skPlayer-percent{
     width:250px;
     height:6px;
     background-color:#cfbfa2;
@@ -109,24 +109,24 @@
     cursor:pointer;
     overflow:hidden;
 }
-#skPlayer .control>.percent .line{
+#skPlayer .skPlayer-control>.skPlayer-percent .skPlayer-line{
     height:100%;
     width:0;
     background-color:#f0b270;
 }
-#skPlayer .control .time{
+#skPlayer .skPlayer-control .skPlayer-time{
     font-size:15px;
     color:#796a67;
     float:left;
 }
-#skPlayer .control .volume{
+#skPlayer .skPlayer-control .skPlayer-volume{
     width:120px;
     height:14px;
     float:right;
     position:relative;
     margin-top:1px;
 }
-#skPlayer .control .volume .icon{
+#skPlayer .skPlayer-control .skPlayer-volume .skPlayer-icon{
     width:5px;
     height:6px;
     display:block;
@@ -136,7 +136,7 @@
     left:-20px;
 
 }
-#skPlayer .control .volume .icon:after{
+#skPlayer .skPlayer-control .skPlayer-volume .skPlayer-icon:after{
     content:'';
     display:block;
     width:5px;
@@ -149,7 +149,7 @@
     top:-4px;
     left:-5px;
 }
-#skPlayer .control .volume .percent{
+#skPlayer .skPlayer-control .skPlayer-volume .skPlayer-percent{
     position:absolute;
     width:120px;
     height:14px;
@@ -160,13 +160,13 @@
     top:0;
     left:0;
 }
-#skPlayer .control .volume .line{
+#skPlayer .skPlayer-control .skPlayer-volume .skPlayer-line{
     height:100%;
     width:30%;
     background-color:#e38f71;
     transition:.37s;
 }
-#skPlayer .loading{
+#skPlayer .skPlayer-loading{
     transition:1s;
     position:absolute;
     width:100%;

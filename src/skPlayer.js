@@ -31,45 +31,45 @@
         var music = options,
             target = document.getElementById('skPlayer'),
             HTMLcontent = '<audio src="' + music.src + '" preload="auto"></audio>';
-            HTMLcontent+= '<div class="picture">';
-            HTMLcontent+= '    <img src="' + music.cover + '" alt="" class="cover">';
-            HTMLcontent+= '    <a href="javascript:;" class="play-btn">';
-            HTMLcontent+= '        <span class="left"></span>';
-            HTMLcontent+= '        <span class="right"></span>';
+            HTMLcontent+= '<div class="skPlayer-picture">';
+            HTMLcontent+= '    <img src="' + music.cover + '" alt="" class="skPlayer-cover">';
+            HTMLcontent+= '    <a href="javascript:;" class="skPlayer-play-btn">';
+            HTMLcontent+= '        <span class="skPlayer-left"></span>';
+            HTMLcontent+= '        <span class="skPlayer-right"></span>';
             HTMLcontent+= '    </a>';
             HTMLcontent+= '</div>';
-            HTMLcontent+= '<div class="control">';
-            HTMLcontent+= '    <p class="name">' + music.name + '</p>';
-            HTMLcontent+= '    <p class="author">' + music.author + '</p>';
-            HTMLcontent+= '    <div class="percent">';
-            HTMLcontent+= '        <div class="line"></div>';
+            HTMLcontent+= '<div class="skPlayer-control">';
+            HTMLcontent+= '    <p class="skPlayer-name">' + music.name + '</p>';
+            HTMLcontent+= '    <p class="skPlayer-author">' + music.author + '</p>';
+            HTMLcontent+= '    <div class="skPlayer-percent">';
+            HTMLcontent+= '        <div class="skPlayer-line"></div>';
             HTMLcontent+= '    </div>';
-            HTMLcontent+= '    <p class="time">';
-            HTMLcontent+= '        <span class="cur"></span>/<span class="total"></span>';
+            HTMLcontent+= '    <p class="skPlayer-time">';
+            HTMLcontent+= '        <span class="skPlayer-cur"></span>/<span class="skPlayer-total"></span>';
             HTMLcontent+= '    </p>';
-            HTMLcontent+= '    <div class="volume">';
-            HTMLcontent+= '        <i class="icon"></i>';
-            HTMLcontent+= '        <div class="percent">';
-            HTMLcontent+= '            <div class="line"></div>';
+            HTMLcontent+= '    <div class="skPlayer-volume">';
+            HTMLcontent+= '        <i class="skPlayer-icon"></i>';
+            HTMLcontent+= '        <div class="skPlayer-percent">';
+            HTMLcontent+= '            <div class="skPlayer-line"></div>';
             HTMLcontent+= '        </div>';
             HTMLcontent+= '    </div>';
             HTMLcontent+= '</div>';
-            HTMLcontent+= '<div class="loading">';
+            HTMLcontent+= '<div class="skPlayer-loading">';
             HTMLcontent+= '    LOADING';
             HTMLcontent+= '</div>';
 
         target.innerHTML = HTMLcontent;
 
         var audio = target.querySelector('audio'),
-            playBtn = target.querySelector('.play-btn'),
-            currentTime = target.querySelector('.percent').querySelector('.line'),
-            totalTime = target.querySelector('.percent'),
-            currentVolume = target.querySelector('.volume').querySelector('.line'),
-            totalVolume = target.querySelector('.volume').querySelector('.percent'),
-            currentTime_text = target.querySelector('.cur'),
-            totalTime_text = target.querySelector('.total'),
-            loading = target.querySelector('.loading'),
-            cover = target.querySelector('.cover');
+            playBtn = target.querySelector('.skPlayer-play-btn'),
+            currentTime = target.querySelector('.skPlayer-percent').querySelector('.skPlayer-line'),
+            totalTime = target.querySelector('.skPlayer-percent'),
+            currentVolume = target.querySelector('.skPlayer-volume').querySelector('.skPlayer-line'),
+            totalVolume = target.querySelector('.skPlayer-volume').querySelector('.skPlayer-percent'),
+            currentTime_text = target.querySelector('.skPlayer-cur'),
+            totalTime_text = target.querySelector('.skPlayer-total'),
+            loading = target.querySelector('.skPlayer-loading'),
+            cover = target.querySelector('.skPlayer-cover');
 
         var duration;
 
@@ -107,8 +107,8 @@
         }
         //播放结束
         function audioEnd(){
-            playBtn.classList.remove('pause');
-            cover.classList.remove('pause');
+            playBtn.classList.remove('skPlayer-pause');
+            cover.classList.remove('skPlayer-pause');
             currentTime_text.innerText = '00:00';
             currentTime.style.width = 0;
         }
@@ -119,12 +119,12 @@
             }else{
                 audio.pause();
             }
-            if(Array.prototype.indexOf.call(playBtn.classList,'pause') >= 0){
-                playBtn.classList.remove('pause');
-                cover.classList.remove('pause');
+            if(Array.prototype.indexOf.call(playBtn.classList,'skPlayer-pause') >= 0){
+                playBtn.classList.remove('skPlayer-pause');
+                cover.classList.remove('skPlayer-pause');
             }else{
-                playBtn.className = "play-btn pause";
-                cover.className = "cover pause";
+                playBtn.className = "skPlayer-play-btn skPlayer-pause";
+                cover.className = "skPlayer-cover skPlayer-pause";
             }
         }
         //进度控制
