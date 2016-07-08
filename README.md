@@ -1,4 +1,5 @@
 # skPlayer
+[![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()
 a simple HTML5 music player  
 一款基于HTML5的web音乐播放器  
 即将发布npm哟 ~
