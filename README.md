@@ -1,17 +1,20 @@
 # skPlayer
-[![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()
+[![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()  
 a simple HTML5 music player  
 一款基于HTML5的web音乐播放器  
-即将发布npm哟 ~
 
 # Demo
-[Demo](http://www.chengfeilong.com/skPlayer/)  
+[在线预览](http://www.chengfeilong.com/skPlayer/)  
 预览：  
 ![demo](http://o9vplcp9o.bkt.clouddn.com/demo.gif)  
 单曲循环模式预览：  
 ![demo](http://o9vplcp9o.bkt.clouddn.com/demo_loop.gif)
 
 # 使用方法
+方式1：NPM  
+npm install skplayer  
+
+方式2：引入文件  
 引入css文件： 
 ```html
 <link rel="stylesheet" href="./dist/skPlayer.min.css">
