@@ -90,7 +90,7 @@
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
-    line-height:1;
+    line-height:1.2;
 }
 #skPlayer .skPlayer-control .skPlayer-name{
     font-size:18px;
