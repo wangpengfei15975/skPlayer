@@ -1,7 +1,8 @@
 {
-  "name": "skPlayer",
+  "name": "skplayer",
   "version": "1.0.0",
   "description": "a simple HTML5 music player",
+  "main": "./dist/skPlayer.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/wangpengfei15975/skPlayer"
@@ -12,6 +13,10 @@
   ],
   "author": "Scott",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangpengfei15975/skPlayer/issues"
+  },
+  "homepage": "https://github.com/wangpengfei15975/skPlayer#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.1",
