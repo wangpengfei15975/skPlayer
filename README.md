@@ -11,10 +11,10 @@ a simple HTML5 music player
 ![demo](http://o9vplcp9o.bkt.clouddn.com/demo_loop.gif)
 
 # 使用方法
-方式1：NPM  
-npm install skplayer  
+* 方式1：NPM  
+`npm install skplayer`  
 
-方式2：引入文件  
+* 方式2：引入文件  
 引入css文件： 
 ```html
 <link rel="stylesheet" href="./dist/skPlayer.min.css">
