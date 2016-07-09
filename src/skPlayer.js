@@ -1,7 +1,7 @@
 /**
  * Created by Scott on 2016/7/7.
  */
-(function(window){
+(function(window,module){
     //公共方法
     var Public = {
         'timeFormat': function (time) {
@@ -155,4 +155,4 @@
     }else{
         window.skPlayer = skPlayer;
     }
-})(window);
+})(window,module);
