@@ -1,7 +1,7 @@
 /**
  * Created by Scott on 2016/7/7.
  */
-(function(window,module){
+(function(window){
     //公共方法
     var Public = {
         'timeFormat': function (time) {
@@ -150,9 +150,9 @@
         }
     };
     //暴露接口
-    if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-        module.exports = skPlayer;
-    }else{
-        window.skPlayer = skPlayer;
-    }
-})(window,module);
+    window.skPlayer = skPlayer;
+    //if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+    //    module.exports = skPlayer;
+    //}else{
+    //}
+})(window);
