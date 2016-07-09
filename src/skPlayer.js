@@ -151,8 +151,8 @@
     };
     //暴露接口
     window.skPlayer = skPlayer;
-    //if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-    //    module.exports = skPlayer;
-    //}else{
-    //}
 })(window);
+//处理模块化
+if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+    module.exports = window.skPlayer;
+}
