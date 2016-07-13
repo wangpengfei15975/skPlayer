@@ -1,6 +1,6 @@
 {
   "name": "skplayer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a simple HTML5 music player",
   "main": "./dist/skPlayer.min.js",
   "repository": {

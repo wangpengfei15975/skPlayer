@@ -48,7 +48,7 @@
             HTMLcontent+= '        <span class="skPlayer-cur"></span>/<span class="skPlayer-total"></span>';
             HTMLcontent+= '    </p>';
             HTMLcontent+= '    <div class="skPlayer-volume">';
-            HTMLcontent+= '        <i class="skPlayer-icon"></i>';
+            HTMLcontent+= '        <i class="skPlayer-icon" data-volume="0"></i>';
             HTMLcontent+= '        <div class="skPlayer-percent">';
             HTMLcontent+= '            <div class="skPlayer-line"></div>';
             HTMLcontent+= '        </div>';
@@ -66,6 +66,7 @@
             totalTime = target.querySelector('.skPlayer-percent'),
             currentVolume = target.querySelector('.skPlayer-volume').querySelector('.skPlayer-line'),
             totalVolume = target.querySelector('.skPlayer-volume').querySelector('.skPlayer-percent'),
+            quietVolume = target.querySelector('.skPlayer-icon'),
             currentTime_text = target.querySelector('.skPlayer-cur'),
             totalTime_text = target.querySelector('.skPlayer-total'),
             loading = target.querySelector('.skPlayer-loading'),
@@ -119,12 +120,12 @@
             }else{
                 audio.pause();
             }
-            if(Array.prototype.indexOf.call(playBtn.classList,'skPlayer-pause') >= 0){
+            if(playBtn.classList.contains('skPlayer-pause')){
                 playBtn.classList.remove('skPlayer-pause');
                 cover.classList.remove('skPlayer-pause');
-            }else{
-                playBtn.className = "skPlayer-play-btn skPlayer-pause";
-                cover.className = "skPlayer-cover skPlayer-pause";
+            }else{  
+                playBtn.classList.add('skPlayer-pause');
+                cover.classList.add('skPlayer-pause');
             }
         }
         //进度控制
@@ -135,9 +136,26 @@
         }
         //音量控制
         function volumeLineClick() {
+            if(quietVolume.classList.contains('skPlayer-quiet')){
+                quietVolume.classList.remove('skPlayer-quiet');
+            }
             var clickPercent = (event.pageX - Public.leftDistance(this)) / this.offsetWidth;
             currentVolume.style.width = clickPercent * 100 + '%';
             audio.volume = clickPercent.toFixed(2);
+        }
+        //静音控制
+        function volumeQuiet(){
+            if(audio.volume != 0){
+                quietVolume.setAttribute('data-volume',audio.volume);
+                audio.volume = 0;
+                currentVolume.style.width = 0;
+                quietVolume.classList.add('skPlayer-quiet');
+            }else{
+                audio.volume = quietVolume.getAttribute('data-volume');
+                currentVolume.style.width = quietVolume.getAttribute('data-volume') * 100 +'%';
+                quietVolume.setAttribute('data-volume','0');
+                quietVolume.classList.remove('skPlayer-quiet');
+            }
         }
         //事件绑定函数
         function handleEvent(){
@@ -147,6 +165,7 @@
             audio.addEventListener('ended', audioEnd);
             totalTime.addEventListener('click', timeLineClick);
             totalVolume.addEventListener('click', volumeLineClick);
+            quietVolume.addEventListener('click', volumeQuiet);
         }
     };
     //暴露接口
