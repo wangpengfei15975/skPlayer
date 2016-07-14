@@ -82,8 +82,8 @@
                 audio.loop = true;
             }
             duration = this.duration;
-            currentTime_text.innerText = '00:00';
-            totalTime_text.innerText = Public.timeFormat(parseInt(duration));
+            currentTime_text.innerHTML = '00:00';
+            totalTime_text.innerHTML = Public.timeFormat(parseInt(duration));
             if(audio.volume == 1){
                 audio.volume = 0.7;
                 currentVolume.style.width = '70%';
@@ -104,13 +104,13 @@
             var curTime = parseInt(audio.currentTime);
             var playPercent = (curTime / duration) * 100;
             currentTime.style.width = playPercent.toFixed(2) + '%';
-            currentTime_text.innerText = Public.timeFormat(curTime);
+            currentTime_text.innerHTML = Public.timeFormat(curTime);
         }
         //播放结束
         function audioEnd(){
             playBtn.classList.remove('skPlayer-pause');
             cover.classList.remove('skPlayer-pause');
-            currentTime_text.innerText = '00:00';
+            currentTime_text.innerHTML = '00:00';
             currentTime.style.width = 0;
         }
         //播放控制
@@ -123,23 +123,35 @@
             if(playBtn.classList.contains('skPlayer-pause')){
                 playBtn.classList.remove('skPlayer-pause');
                 cover.classList.remove('skPlayer-pause');
-            }else{  
+            }else{
                 playBtn.classList.add('skPlayer-pause');
                 cover.classList.add('skPlayer-pause');
             }
         }
         //进度控制
-        function timeLineClick(){
-            var clickPercent = (event.pageX - Public.leftDistance(this)) / this.offsetWidth;
+        function timeLineClick(event){
+            var e = window.event || event;
+            var clickPercent;
+            if(e.pageX){
+                clickPercent = (e.pageX - Public.leftDistance(this)) / this.offsetWidth;
+            }else{
+                clickPercent = (e.clientX - Public.leftDistance(this)) / this.offsetWidth;
+            }
             currentTime.style.width = clickPercent * 100 + '%';
             audio.currentTime = parseInt(clickPercent * duration);
         }
         //音量控制
-        function volumeLineClick() {
+        function volumeLineClick(event) {
+            var e = window.event || event;
             if(quietVolume.classList.contains('skPlayer-quiet')){
                 quietVolume.classList.remove('skPlayer-quiet');
             }
-            var clickPercent = (event.pageX - Public.leftDistance(this)) / this.offsetWidth;
+            var clickPercent;
+            if(e.pageX){
+                clickPercent = (e.pageX - Public.leftDistance(this)) / this.offsetWidth;
+            }else{
+                clickPercent = (e.clientX - Public.leftDistance(this)) / this.offsetWidth;
+            }
             currentVolume.style.width = clickPercent * 100 + '%';
             audio.volume = clickPercent.toFixed(2);
         }
