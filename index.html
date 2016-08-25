@@ -26,11 +26,28 @@
     <script>
         window.onload = function(){
             skPlayer({
-                src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',
-                name:'打呼',
-                author:'潘玮柏&杨丞琳',
-                cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg',
-                // loop:true
+                music:[
+                    {
+                        src:'http://o9vplcp9o.bkt.clouddn.com/Solitude.mp3',
+                        name:'Solitude',
+                        author:'Re:plus',
+                        cover:'http://o9vplcp9o.bkt.clouddn.com/Solitude_cover.jpg'
+                    },
+                    {
+                        src:'http://o9vplcp9o.bkt.clouddn.com/CountingStars.mp3',
+                        name:'Counting Stars',
+                        author:'OneRepublic',
+                        cover:'http://o9vplcp9o.bkt.clouddn.com/CountingStars_cover.jpg'
+                    },
+                    {
+                        src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',
+                        name:'打呼',
+                        author:'潘玮柏&杨丞琳',
+                        cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'
+                    }
+                ],
+                //loop:true,
+                theme:'red'
             });
         };
     </script>

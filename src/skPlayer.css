@@ -4,6 +4,10 @@
     font-family:Helvetica,Tahoma,Arial,'Microsoft YaHei',sans-serif;
     position:relative;
 }
+#skPlayer.skPlayer-red{
+    background:#fff;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
 #skPlayer .skPlayer-picture{
     width:86px;
     height:86px;
@@ -12,6 +16,11 @@
     float:left;
     position:relative;
     border-radius:7px 0 0 5px;
+    z-index:2;
+}
+#skPlayer.skPlayer-red .skPlayer-picture{
+    background-color:#fff;
+    box-shadow:2px 1px 2px 0 rgba(0,0,0,.12);
 }
 #skPlayer .skPlayer-cover{
     width:100%;
@@ -36,6 +45,9 @@
     z-index:2;
     transition:.7s;
 }
+#skPlayer.skPlayer-red .skPlayer-play-btn{
+    background-color:#D94240;
+}
 #skPlayer .skPlayer-play-btn.skPlayer-pause{
     top:50%;
     left:50%;
@@ -56,10 +68,18 @@
     left:21px;
     top:16px;
 }
+#skPlayer.skPlayer-red .skPlayer-play-btn .skPlayer-left{
+    border-left:24px solid #fff;
+}
 #skPlayer .skPlayer-pause .skPlayer-left{
     border:14px solid #f0e9dc;
     border-left:2px solid #f0e9dc;
     border-right:2px solid #f0e9dc;
+}
+#skPlayer.skPlayer-red .skPlayer-pause .skPlayer-left{
+    border:14px solid #fff;
+    border-left:2px solid #fff;
+    border-right:2px solid #fff;
 }
 #skPlayer .skPlayer-play-btn .skPlayer-right{
     width:0px;
@@ -71,6 +91,11 @@
     position:absolute;
     right:21px;
     top:-76px;
+}
+#skPlayer.skPlayer-red .skPlayer-play-btn .skPlayer-right{
+    border:14px solid #fff;
+    border-left:2px solid #fff;
+    border-right:2px solid #fff;
 }
 #skPlayer .skPlayer-pause .skPlayer-right{
     right:21px;
@@ -84,6 +109,10 @@
     float:right;
     border-radius:0 7px 7px 0;
     position:relative;
+    z-index:2;
+}
+#skPlayer.skPlayer-red .skPlayer-control{
+    background-color:transparent;
 }
 #skPlayer .skPlayer-control p{
     margin:0;
@@ -97,9 +126,15 @@
     font-weight:700;
     color:#6f5f5c;
 }
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-name{
+    color:#6A6B6F;
+}
 #skPlayer .skPlayer-control .skPlayer-author{
     font-size:15px;
     color:#968983;
+}
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-author{
+    color:#666;
 }
 #skPlayer .skPlayer-control>.skPlayer-percent{
     width:250px;
@@ -110,15 +145,24 @@
     cursor:pointer;
     overflow:hidden;
 }
+#skPlayer.skPlayer-red .skPlayer-control>.skPlayer-percent{
+    background-color:rgba(231, 231, 239, .8);
+}
 #skPlayer .skPlayer-control>.skPlayer-percent .skPlayer-line{
     height:100%;
     width:0;
     background-color:#f0b270;
 }
+#skPlayer.skPlayer-red .skPlayer-control>.skPlayer-percent .skPlayer-line{
+    background-color:#D94240;
+}
 #skPlayer .skPlayer-control .skPlayer-time{
     font-size:15px;
     color:#796a67;
     float:left;
+}
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-time{
+    color:#666;
 }
 #skPlayer .skPlayer-control .skPlayer-volume{
     width:120px;
@@ -137,6 +181,9 @@
     left:-20px;
     cursor:pointer;
 }
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-icon{
+    background-color:#6A6B6F;
+}
 #skPlayer .skPlayer-control .skPlayer-volume .skPlayer-icon.skPlayer-quiet:before{
     display:block;
 }
@@ -152,6 +199,9 @@
     top:-8px;
     left:5px;
 }
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-icon:before{
+    background-color:#6A6B6F;
+}
 #skPlayer .skPlayer-control .skPlayer-volume .skPlayer-icon:after{
     content:'';
     display:block;
@@ -165,6 +215,9 @@
     top:-4px;
     left:-5px;
 }
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-icon:after{
+    border-color:transparent #6A6B6F transparent transparent;
+}
 #skPlayer .skPlayer-control .skPlayer-volume .skPlayer-percent{
     position:absolute;
     width:120px;
@@ -176,21 +229,90 @@
     top:0;
     left:0;
 }
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-percent{
+    background-color:rgba(231, 231, 239, .8);
+}
 #skPlayer .skPlayer-control .skPlayer-volume .skPlayer-line{
     height:100%;
     width:30%;
     background-color:#e38f71;
     transition:.37s;
 }
-#skPlayer .skPlayer-loading{
-    transition:1s;
-    position:absolute;
-    width:100%;
-    height:100%;
-    text-align:center;
-    line-height:100px;
-    background-color:rgba(255,255,255,.9);
-    z-index:3;
-    font-size:19px;
-    color:#6f5f5c;
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-line{
+    background-color:#D94240;
+}
+#skPlayer .skPlayer-list{
+    width: 100%;
+    position: absolute;
+    top: 94px;
+    margin: 0;
+    padding: 6px 0 0 0;
+    background-color: #f0e9dc;
+    list-style: none;
+    max-height: 171px;
+    overflow-y: auto;
+}
+#skPlayer.skPlayer-red .skPlayer-list{
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    top:100px;
+}
+#skPlayer .skPlayer-list li{
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 15px;
+    font-size: 12px;
+    border-top: 1px solid #e9e9e9;
+    cursor: pointer;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    overflow: hidden;
+}
+#skPlayer .skPlayer-list li:hover{
+    background: #E1D9CC;
+}
+#skPlayer.skPlayer-red .skPlayer-list li:hover{
+    background: #DDDDDD;
+}
+#skPlayer .skPlayer-list li.skPlayer-curMusic{
+    background: #D1C9BB;
+}
+#skPlayer.skPlayer-red .skPlayer-list li.skPlayer-curMusic{
+    background: #B0B0B0;
+}
+#skPlayer .skPlayer-list .skPlayer-list-sign{
+    display: none;
+    width: 3px;
+    height: 22px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background: #825d5b;
+}
+#skPlayer.skPlayer-red .skPlayer-list .skPlayer-list-sign{
+    background: #D94240;
+}
+#skPlayer .skPlayer-list li.skPlayer-curMusic .skPlayer-list-sign{
+    display: block;
+}
+#skPlayer .skPlayer-list .skPlayer-list-index{
+    color: #6f5f5c;
+    margin-right: 12px;
+}
+#skPlayer.skPlayer-red .skPlayer-list .skPlayer-list-index{
+    color: #666;
+}
+#skPlayer .skPlayer-list .skPlayer-list-name{
+    color: #6f5f5c;
+}
+#skPlayer.skPlayer-red .skPlayer-list .skPlayer-list-name{
+    color: #6A6B6F;
+}
+#skPlayer .skPlayer-list .skPlayer-list-author{
+    color: #968983;
+    float: right;
+}
+#skPlayer .skPlayer-list .skPlayer-list-author{
+    color: #666;
 }
