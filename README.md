@@ -49,10 +49,10 @@ skPlayer({
 skPlayer({
 	music:[
 		{
-		    src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',//音乐文件，必填
-		    name:'打呼',//歌曲名称，必填
-		    author:'潘玮柏&杨丞琳',//歌手，必填
-		    cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'//专辑封面，必填
+		    src:'http://o9vplcp9o.bkt.clouddn.com/Solitude.mp3',//音乐文件，必填
+		    name:'Solitude',//歌曲名称，必填
+		    author:'Re:plus',//歌手，必填
+		    cover:'http://o9vplcp9o.bkt.clouddn.com/Solitude_cover.jpg'//专辑封面，必填
 		},
 		{
             src:'http://o9vplcp9o.bkt.clouddn.com/CountingStars.mp3',
