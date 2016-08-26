@@ -7,8 +7,10 @@ a simple HTML5 music player
 [在线预览](http://www.chengfeilong.com/skPlayer/)  
 预览：  
 ![demo](http://o9vplcp9o.bkt.clouddn.com/demo.gif)  
-单曲循环模式预览：  
-![demo](http://o9vplcp9o.bkt.clouddn.com/demo_loop.gif)
+多曲列表模式预览：  
+![demo](http://o9vplcp9o.bkt.clouddn.com/demo_mutil.jpg)  
+red主题预览：  
+![demo](http://o9vplcp9o.bkt.clouddn.com/demo_red.jpg)
 
 # 使用方法
 方式1：NPM  
@@ -32,20 +34,47 @@ a simple HTML5 music player
 ```
 配置skPlayer对象：
 ```js
+//无列表单曲模式
 skPlayer({
-    src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',//音乐文件，必填
-    name:'打呼',//歌曲名称，必填
-    author:'潘玮柏&杨丞琳',//歌手，必填
-    cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'//专辑封面，必填
+	music:{
+	    src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',//音乐文件，必填
+	    name:'打呼',//歌曲名称，必填
+	    author:'潘玮柏&杨丞琳',//歌手，必填
+	    cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'//专辑封面，必填
+	}
     //loop:true 是否单曲循环，选填
+    //theme:'red' 切换red主题，选填
+});
+//有列表多曲模式
+skPlayer({
+	music:[
+		{
+		    src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',//音乐文件，必填
+		    name:'打呼',//歌曲名称，必填
+		    author:'潘玮柏&杨丞琳',//歌手，必填
+		    cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'//专辑封面，必填
+		},
+		{
+            src:'http://o9vplcp9o.bkt.clouddn.com/CountingStars.mp3',
+            name:'Counting Stars',
+            author:'OneRepublic',
+            cover:'http://o9vplcp9o.bkt.clouddn.com/CountingStars_cover.jpg'
+        },
+        {
+            src:'http://o9vplcp9o.bkt.clouddn.com/music.mp3',
+            name:'打呼',
+            author:'潘玮柏&杨丞琳',
+            cover:'http://o9vplcp9o.bkt.clouddn.com/cover.jpg'
+        }
+	],
+    //loop:true 是否单曲循环，选填
+    //theme:'red' 切换red主题，选填
 });
 ```
 
 # TODO
-* 歌曲列表
 * 滚动歌词
 * 兼容移动端
 
 # 最后
-UI参考：[dribbble](https://dribbble.com/shots/1233843-Ui-Kit-Rainy-Season)  
-感谢七牛云存储提供存储服务
+UI参考：[dribbble](https://dribbble.com/shots/1233843-Ui-Kit-Rainy-Season)

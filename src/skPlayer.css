@@ -3,6 +3,10 @@
     height:100px;
     font-family:Helvetica,Tahoma,Arial,'Microsoft YaHei',sans-serif;
     position:relative;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    cursor:default;
 }
 #skPlayer.skPlayer-red{
     background:#fff;
@@ -171,6 +175,9 @@
     position:relative;
     margin-top:1px;
 }
+#skPlayer .skPlayer-control .skPlayer-volume.skPlayer-hasList{
+    margin-right:24px;
+}
 #skPlayer .skPlayer-control .skPlayer-volume .skPlayer-icon{
     width:5px;
     height:6px;
@@ -241,7 +248,55 @@
 #skPlayer.skPlayer-red .skPlayer-control .skPlayer-volume .skPlayer-line{
     background-color:#D94240;
 }
+#skPlayer .skPlayer-control .skPlayer-list-switch{
+    display: block;
+    width: 16px;
+    height: 15px;
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    cursor: pointer;
+}
+#skPlayer .skPlayer-control .skPlayer-list-icon{
+    display: block;
+    width: 16px;
+    height: 3px;
+    background-color: #6f5f5c;
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+}
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-list-icon{
+    background-color: #6A6B6F;
+}
+#skPlayer .skPlayer-control .skPlayer-list-icon::before{
+    content: '';
+    display: block;
+    width: 16px;
+    height: 3px;
+    background-color: #6f5f5c;
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+}
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-list-icon::before{
+    background-color: #6A6B6F;
+}
+#skPlayer .skPlayer-control .skPlayer-list-icon::after{
+    content: '';
+    display: block;
+    width: 16px;
+    height: 3px;
+    background-color: #6f5f5c;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+}
+#skPlayer.skPlayer-red .skPlayer-control .skPlayer-list-icon::after{
+    background-color: #6A6B6F;
+}
 #skPlayer .skPlayer-list{
+    display: none;
     width: 100%;
     position: absolute;
     top: 94px;
@@ -251,6 +306,9 @@
     list-style: none;
     max-height: 171px;
     overflow-y: auto;
+}
+#skPlayer.skPlayer-list-on .skPlayer-list{
+    display:block;
 }
 #skPlayer.skPlayer-red .skPlayer-list{
     background-color: #fff;

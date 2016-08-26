@@ -51,11 +51,14 @@
                 HTMLcontent+= '    <p class="skPlayer-time">';
                 HTMLcontent+= '        <span class="skPlayer-cur">00:00</span>/<span class="skPlayer-total">00:00</span>';
                 HTMLcontent+= '    </p>';
-                HTMLcontent+= '    <div class="skPlayer-volume">';
+                HTMLcontent+= '    <div class="skPlayer-volume skPlayer-hasList">';
                 HTMLcontent+= '        <i class="skPlayer-icon" data-volume="0"></i>';
                 HTMLcontent+= '        <div class="skPlayer-percent">';
                 HTMLcontent+= '            <div class="skPlayer-line"></div>';
                 HTMLcontent+= '        </div>';
+                HTMLcontent+= '    </div>';
+                HTMLcontent+= '    <div class="skPlayer-list-switch">';
+                HTMLcontent+= '        <i class="skPlayer-list-icon"></i>';
                 HTMLcontent+= '    </div>';
                 HTMLcontent+= '</div>';
                 HTMLcontent+= '<ul class="skPlayer-list">';
@@ -120,6 +123,8 @@
             cover = target.querySelector('.skPlayer-cover');
         if(Array.isArray(music)){
             var musicItem = target.querySelectorAll('.skPlayer-list li');
+            var listSwitch = target.querySelector('.skPlayer-list-switch');
+            target.classList.add('skPlayer-list-on');
         }
 
         var duration;
@@ -254,6 +259,9 @@
                 }
             }
         }
+        function switchList(){
+            target.classList.contains('skPlayer-list-on') ? target.classList.remove('skPlayer-list-on') : target.classList.add('skPlayer-list-on') ;
+        }
         //事件绑定函数
         function handleEvent(){
             //audio.addEventListener('canplaythrough', canPlayThrough);
@@ -269,6 +277,7 @@
                     musicItem[item].addEventListener('click',changeMusic);
                 }
                 target.querySelector('.skPlayer-list li:nth-child(1)').classList.add('skPlayer-curMusic');
+                listSwitch.addEventListener('click',switchList);
             }
         }
     };

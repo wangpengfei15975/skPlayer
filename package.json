@@ -1,17 +1,19 @@
 {
   "name": "skplayer",
-  "version": "2.0.5",
+  "version": "2.1.6",
   "description": "a simple HTML5 music player",
   "main": "./dist/skPlayer.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wangpengfei15975/skPlayer"
+    "url": "git+https://github.com/wangpengfei15975/skPlayer.git"
   },
   "keywords": [
     "music",
     "player"
   ],
-  "author": "Scott",
+  "author": {
+    "name": "Scott"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wangpengfei15975/skPlayer/issues"
@@ -20,7 +22,34 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.1",
-    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0"
-  }
+  },
+  "gitHead": "dd0e57d406503997ca7ce2e7145ae3a51689278f",
+  "_id": "skplayer@2.0.5",
+  "scripts": {},
+  "_shasum": "60bc56af7723cf1f31adcb0727b62a9da44b97ff",
+  "_from": "skplayer@latest",
+  "_npmVersion": "2.14.7",
+  "_nodeVersion": "4.2.2",
+  "_npmUser": {
+    "name": "scott15975",
+    "email": "me@chengfeilong.com"
+  },
+  "dist": {
+    "shasum": "60bc56af7723cf1f31adcb0727b62a9da44b97ff",
+    "tarball": "https://registry.npmjs.org/skplayer/-/skplayer-2.0.5.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "scott15975",
+      "email": "me@chengfeilong.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/skplayer-2.0.5.tgz_1472148878379_0.4681888264603913"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/skplayer/-/skplayer-2.0.5.tgz"
 }
