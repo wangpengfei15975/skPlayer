@@ -370,7 +370,11 @@
 #skPlayer .skPlayer-list .skPlayer-list-author{
     color: #968983;
     float: right;
+    max-width: 107px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-#skPlayer .skPlayer-list .skPlayer-list-author{
+#skPlayer.skPlayer-red .skPlayer-list .skPlayer-list-author{
     color: #666;
 }
