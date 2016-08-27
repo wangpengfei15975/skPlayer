@@ -83,7 +83,7 @@
                 HTMLcontent+= '        <i class="skPlayer-list-sign"></i>';
                 HTMLcontent+= '        <span class="skPlayer-list-index">' + (parseInt(item)+1) + '</span>';
                 HTMLcontent+= '        <span class="skPlayer-list-name">' + options.music[item].name + '</span>';
-                HTMLcontent+= '        <span class="skPlayer-list-author">' + options.music[item].author + '</span>';
+                HTMLcontent+= '        <span class="skPlayer-list-author" title=" ' + options.music[item].author + ' ">' + options.music[item].author + '</span>';
                 HTMLcontent+= '    </li>';
             }
                 HTMLcontent+= '</ul>';
@@ -213,7 +213,7 @@
                         HTMLcontent+= '        <i class="skPlayer-list-sign"></i>';
                         HTMLcontent+= '        <span class="skPlayer-list-index">' + (parseInt(item)+1) + '</span>';
                         HTMLcontent+= '        <span class="skPlayer-list-name">' + music[item].name + '</span>';
-                        HTMLcontent+= '        <span class="skPlayer-list-author">' + music[item].author + '</span>';
+                        HTMLcontent+= '        <span class="skPlayer-list-author" title="' + music[item].author + '">' + music[item].author + '</span>';
                         HTMLcontent+= '    </li>';
                     }
                         HTMLcontent+= '</ul>';
@@ -277,7 +277,7 @@
         }
         //播放结束
         function audioEnd(){
-            if(Array.isArray(music)){
+            if(Array.isArray(music) && music.length !== 1){
                 var index = parseInt(target.querySelector('.skPlayer-curMusic').getAttribute('data-index')) + 1;
                 if(index < music.length){
                     if(target.querySelector('.skPlayer-curMusic').nextSibling !== 1){
