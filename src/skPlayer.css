@@ -44,6 +44,7 @@
     -webkit-transform:translate(-50%,-50%);
     z-index:2;
     transition:.7s;
+    will-change:top,left,transform;
 }
 #skPlayer.skPlayer-red .skPlayer-play-btn{
     background-color:#D94240;
@@ -67,6 +68,7 @@
     position:absolute;
     left:21px;
     top:16px;
+    will-change:border;
 }
 #skPlayer.skPlayer-red .skPlayer-play-btn .skPlayer-left{
     border-left:24px solid #fff;
@@ -91,6 +93,7 @@
     position:absolute;
     right:21px;
     top:-76px;
+    will-change:top,right;
 }
 #skPlayer.skPlayer-red .skPlayer-play-btn .skPlayer-right{
     border:14px solid #fff;
