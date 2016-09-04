@@ -13,18 +13,14 @@
     box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 #skPlayer .skPlayer-picture{
-    width:86px;
-    height:86px;
-    padding:7px;
-    background-color:#825d5b;
+    width:100px;
+    height:100px;
     float:left;
     position:relative;
     border-radius:7px 0 0 5px;
-    z-index:2;
+    z-index:3;
 }
 #skPlayer.skPlayer-red .skPlayer-picture{
-    background-color:#fff;
-    box-shadow:2px 1px 2px 0 rgba(0,0,0,.12);
 }
 #skPlayer .skPlayer-cover{
     width:100%;
@@ -326,6 +322,30 @@
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     overflow: hidden;
+}
+#skPlayer .skPlayer-list::-webkit-scrollbar{
+    width: 16px;
+    height: 16px;
+    background-color: #f0e9dc;
+}
+#skPlayer.skPlayer-red .skPlayer-list::-webkit-scrollbar{
+    background-color: #fff;
+}
+#skPlayer .skPlayer-list::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #f0e9dc;
+}
+#skPlayer.skPlayer-red .skPlayer-list::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+#skPlayer .skPlayer-list::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #a26b61;
+}
+#skPlayer.skPlayer-red .skPlayer-list::-webkit-scrollbar-thumb{
+    background-color: #D94240;
 }
 #skPlayer .skPlayer-list li:hover{
     background: #E1D9CC;
