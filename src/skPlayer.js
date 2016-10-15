@@ -23,6 +23,7 @@
             var options = options || {};
             var xhr = new XMLHttpRequest();
             xhr.open('GET',options.url);
+            xhr.setRequestHeader('Accept','*/*');
             xhr.send(null);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
@@ -262,7 +263,6 @@
                 audio.volume = 0.7;
                 currentVolume.style.width = '70%';
             }
-            playBtn.addEventListener('click', playClick);
         }
         //歌曲时长变动
         function durationChange() {
@@ -386,6 +386,7 @@
         //事件绑定函数
         function handleEvent(){
             //audio.addEventListener('canplaythrough', canPlayThrough);
+            playBtn.addEventListener('click', playClick);
             audio.addEventListener('canplay', canPlayThrough);
             audio.addEventListener('durationchange', durationChange);
             audio.addEventListener('timeupdate', timeUpdate);
