@@ -2,6 +2,7 @@
 抱歉，服务器到期忘记续费了。  
 周末有空会续费，恢复正常。  
 博主也是无偿提供服务，希望理解。  
+
 [![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()  
 a simple HTML5 music player  
 一款基于HTML5的web音乐播放器  
