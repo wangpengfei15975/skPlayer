@@ -2,7 +2,10 @@
 抱歉，服务器到期忘记续费了。  
 周末有空会续费，恢复正常。  
 接口是出于开源的目的提供无偿服务，希望理解。  
-Time:2016/12/16
+Time:2016/12/16  
+更新提醒：  
+由于2016/12/14服务器到期忘记续费，导致接口发生变化，烦请更新源文件以正常使用。  
+竟然有同学想要捐助，在底部列出了捐助支付方式，有想支持接口服务器的，随意捐助数目。
 
 [![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()  
 a simple HTML5 music player  
@@ -85,6 +88,11 @@ skPlayer({
 # TODO
 * 滚动歌词
 * 兼容移动端
+
+## 捂脸
+竟然有同学想给我捐助，鉴于服务器到期的事情不好意思了，这里列上捐助方式吧，有愿意捐助的朋友就当支持一下歌单拉取服务器。  
+支付宝：<img src="http://www.chengfeilong.com/img/skPlayer/zfb.jpg">
+微信：<img src="http://www.chengfeilong.com/img/skPlayer/wx.jpg">
 
 # 最后
 UI参考：[dribbble](https://dribbble.com/shots/1233843-Ui-Kit-Rainy-Season)
