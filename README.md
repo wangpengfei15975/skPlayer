@@ -1,6 +1,6 @@
 # skPlayer (已支持拉取网易云音乐歌单)
 抱歉，服务器到期忘记续费了。  
-周末有空会续费，恢复正常。   
+周末有空会续费，恢复正常。  
 接口是出于开源的目的提供无偿服务，希望理解。  
 
 [![npm](https://img.shields.io/npm/v/skplayer.svg)]() [![npm](https://img.shields.io/npm/dt/skplayer.svg)]()  
