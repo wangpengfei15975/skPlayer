@@ -89,7 +89,7 @@ skPlayer({
 * 滚动歌词
 * 兼容移动端
 
-## 捂脸
+# 捂脸
 竟然有同学想给我捐助，鉴于服务器到期的事情不好意思了，这里列上捐助方式吧，有愿意捐助的朋友就当支持一下歌单拉取服务器。  
 支付宝：<img src="http://www.chengfeilong.com/img/skPlayer/zfb.jpg">
 微信：<img src="http://www.chengfeilong.com/img/skPlayer/wx.jpg">
