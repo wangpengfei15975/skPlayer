@@ -1,0 +1,439 @@
+/*!
+    SKPlayer
+ */
+
+//const
+$white:#FFF;              //主白
+$red:#D94240;             //主红
+$gray:#6A6B6F;            //主灰
+$gray_grandma:#666;       //奶奶灰
+$line:#EBEBF2;            //进度条
+$line_loading:#D3D3E0;    //加载进度条
+$list_bg:#B0B0B0;         //列表项背景
+$list_hover:#DDD;         //列表项hover
+$list_border:#E9E9E9;     //列表项边框
+
+//mixin
+@mixin user-select($value:none){
+  user-select:$value;
+  -webkit-user-select:$value;
+  -moz-user-select:$value;
+  -ms-user-select:$value;
+}
+@mixin box-sizing($value:content-box){
+  box-sizing:$value;
+  -webkit-box-sizing:$value;
+  -moz-box-sizing:$value;
+}
+@mixin filter($value:blur(3px)){
+  filter:$value;
+  -webkit-filter:$value;
+}
+@mixin transition($value:.37s){
+  transition:$value;
+  -webkit-transition:$value;
+  -moz-transition:$value;
+}
+@mixin transform($value:translate(-50%,-50%)){
+  transform:$value;
+  -webkit-transform:$value;
+  -moz-transform:$value;
+  -ms-transform:$value;
+}
+@mixin ellipsis{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+//css
+#skPlayer{
+  width:380px;
+  height:100px;
+  font-family:Arial,Helvetica,sans-serif;
+  position:relative;
+  @include user-select();
+  cursor:default;
+  background-color:$white;
+  box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+
+  *{
+    margin:0;
+    padding:0;
+    @include box-sizing();
+
+    &::before{
+      @include box-sizing();
+    }
+
+    &::after{
+      @include box-sizing();
+    }
+
+  }
+
+  .skPlayer-picture{
+    width:100px;
+    height:100px;
+    float:left;
+    position:relative;
+    border-radius:7px 0 0 5px;
+    z-index:3;
+  }
+
+  .skPlayer-cover{
+    width:100%;
+    @include transition();
+    &.skPlayer-pause{
+      @include filter();
+    }
+  }
+
+  .skPlayer-play-btn{
+    display:block;
+    width:60px;
+    height:60px;
+    background-color:$red;
+    border-radius:50%;
+    position:absolute;
+    overflow:hidden;
+    top:50%;
+    left:0;
+    @include transform(translate(-50%,-50%) translateZ(0));
+    z-index:2;
+    @include transition(.7s);
+
+    &.skPlayer-pause{
+      left:50%;
+
+      .skPlayer-left{
+        border:14px solid $white;
+        border-left:2px solid $white;
+        border-right:2px solid $white;
+      }
+
+      .skPlayer-right{
+        top:16px;
+      }
+
+    }
+
+    span{
+      display:block;
+      width:0;
+      height:0;
+      position:absolute;
+      @include transition();
+      @include transform(translateZ(0));
+
+      &.skPlayer-left{
+        border-left:24px solid $white;
+        border-top:14px solid transparent;
+        border-bottom:14px solid transparent;
+        left:21px;
+        top:16px;
+      }
+
+      &.skPlayer-right{
+        border:14px solid $white;
+        border-left:2px solid $white;
+        border-right:2px solid $white;
+        right:21px;
+        top:-76px;
+      }
+
+    }
+
+  }
+
+  .skPlayer-control{
+    width:250px;
+    height:75px;
+    padding:10px 15px 15px;
+    background-color:transparent;
+    float:right;
+    border-radius:0 7px 7px 0;
+    position:relative;
+    z-index:2;
+    text-align:left;
+
+    p{
+      line-height:1.2;
+      @include ellipsis;
+
+      &.skPlayer-name{
+        font-size:18px;
+        font-weight:700;
+        color:$gray;
+      }
+
+      &.skPlayer-author{
+        font-size:15px;
+        color:$gray_grandma;
+        max-width:90%;
+      }
+
+    }
+
+    >.skPlayer-percent{
+      width:250px;
+      height:6px;
+      background-color:$line;
+      border-radius:2px;
+      margin:9px 0;
+      cursor:pointer;
+      overflow:hidden;
+      position:relative;
+
+      .skPlayer-line{
+        width:0;
+        height:100%;
+        background-color:$red;
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:2;
+      }
+
+      .skPlayer-line-loading{
+        width:0;
+        height:100%;
+        background-color:$line_loading;
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:1;
+        @include transition(.7s);
+      }
+
+    }
+
+    .skPlayer-time{
+      font-size:15px;
+      color:$gray_grandma;
+      float:left;
+    }
+
+    .skPlayer-volume{
+      width:120px;
+      height:14px;
+      float:right;
+      position:relative;
+      margin:1px 24px 0 0;
+
+      .skPlayer-icon{
+        display:block;
+        width:5px;
+        height:6px;
+        position:absolute;
+        background-color:$gray;
+        top:4px;
+        left:-20px;
+        cursor:pointer;
+
+        &.skPlayer-quiet::before{
+          display:block;
+        }
+
+        &::before{
+          content:'';
+          display:none;
+          width:2px;
+          height:22px;
+          @include transform(rotate(58deg));
+          background-color:$gray;
+          position:absolute;
+          top:-8px;
+          left:5px;
+        }
+
+        &::after{
+          content:'';
+          display:block;
+          width:5px;
+          height:6px;
+          border-width:4px 5px;
+          border-style:solid;
+          border-color:transparent $gray transparent transparent;
+          position:absolute;
+          top:-4px;
+          left:-5px;
+        }
+
+      }
+
+      .skPlayer-percent{
+        position:absolute;
+        width:120px;
+        height:14px;
+        background-color:$line;
+        border-radius:6px;
+        overflow:hidden;
+        cursor:pointer;
+        top:0;
+        left:0;
+      }
+
+      .skPlayer-line{
+        height:100%;
+        width:100%;
+        background-color:$red;
+        @include transition();
+      }
+
+    }
+
+    .skPlayer-list-switch{
+      display:block;
+      width:16px;
+      height:15px;
+      position:absolute;
+      right:15px;
+      bottom:12px;
+      cursor:pointer;
+    }
+
+    .skPlayer-list-icon{
+      display:block;
+      width:16px;
+      height:3px;
+      background-color:$gray;
+      position:absolute;
+      right:0;
+      bottom:6px;
+
+      &::before{
+        content:'';
+        display:block;
+        width:16px;
+        height:3px;
+        background-color:$gray;
+        position:absolute;
+        left:0;
+        bottom:6px;
+      }
+
+      &::after{
+        content:'';
+        display:block;
+        width:16px;
+        height:3px;
+        background-color:$gray;
+        position:absolute;
+        left:0;
+        bottom:-6px;
+      }
+
+    }
+
+    .skPlayer-mode{
+      display:block;
+      width:16px;
+      height:17px;
+      background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAABVklEQVQ4y5XTvY6NURQG4OdsnElMFFqFiCgk/htBaFAoRq0QHYO9JTsSVyB6+STfx4hO5QJMZTQkU0gw4gJM4wpIxH8x6+QMxndy3mZl7bXf911r/wwgl/oCJ/2Ll13bnNKDpB8nJtTXBMJlBi1+TjLIpW7+Y0MudYinKPiOeziObRuQL2Epl7oVRkp3cRYfMde1zZv/OA9xBzuDc3WQS92HlXA+1rXN276Zc6mH8CrMjyRcxibcn0SO81rBQwwwn3Auak8mkdfhccQzCbsjeT2FwKjTXQk/IpmdQmBLxG8Jq5HsnUJgf8TVhOeRXJhC4GLEZwkL+IVrcUW9yKUexJUY/VHq2uZdiMxgMZd6tId8GIuxd6Frm/ejl1ixx9prvG18tXKpszgQbc9jGGPfZPyZvuI8HuDWX8afsIwbQYbTWGL8F3Rt8wXXN+j8Mz5gO3asWx/AbzMQVi2KT5GSAAAAAElFTkSuQmCC);
+      position:absolute;
+      right:15px;
+      bottom:51px;
+      cursor:pointer;
+      &.skPlayer-mode-loop{
+        background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAABa0lEQVQ4y5XTu2pVURAG4O9s9QgGC1sLEbEQvMXGG7FRCwutLcROIq4lLASfQOxlC3trbK18AFMZm0QEhcSID2Aan0BB4gWLM8cT48455G+GWWv++WfWzOpBymURM/7HUtvUF4xBZTzOT7gfJAiV3Wjwe5JAymXnPwEplz5eIuMnHuMc9naQb2Ih5bIHhpke4TK+4Grb1CtbKPfxEAeCc7uXcjmK1VA+2zb1h3E9p1xO4n2In6pwCzvwZDM55bIYE/qLtqlX8Qw9zFa4EncvOgRndI/3edhLFQ6FszxpZBswrPRghV/hTG0jwa6wPyqshXNkGwmOhV2r8Dqc6x2BS3jTcX4j7KteyuVE9LSOM/HKWyLi3xmMcbpqm/oj5gxWeT7lcnoMeRrzETvXNvWn4SYWHDbYxgdGo5VymcLxKHsW/Wj7HqPPtI5reIr7m4S/4i3uBhkuYoHRX9A29Xfc6aj8Gz5jH/ZvOO/BH1b7XciLVLbaAAAAAElFTkSuQmCC);
+      }
+    }
+
+  }
+
+  .skPlayer-list{
+    display:none;
+    width:100%;
+    position:absolute;
+    top:100px;
+    padding-top:6px;
+    background-color:$white;
+    list-style:none;
+    max-height:171px;
+    overflow-y:auto;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+
+    li{
+      position:relative;
+      height:32px;
+      line-height:32px;
+      padding:0 15px;
+      font-size:12px;
+      border-top:1px solid $list_border;
+      cursor:pointer;
+      @include transition(.2s);
+      overflow:hidden;
+
+      &:hover{
+        background-color:$list_hover;
+      }
+
+      &.skPlayer-curMusic{
+        background-color:$list_bg;
+        .skPlayer-list-sign{
+          display:block;
+        }
+      }
+
+    }
+
+    &::-webkit-scrollbar{
+      width:16px;
+      height:16px;
+      background-color:$white;
+    }
+
+    &::-webkit-scrollbar-track{
+      box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      border-radius:10px;
+      background-color:$white;
+    }
+
+    &::-webkit-scrollbar-thumb{
+      box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      border-radius:10px;
+      background-color:$red;
+    }
+
+    .skPlayer-list-sign{
+      display:none;
+      width:3px;
+      height:22px;
+      position:absolute;
+      left:0;
+      top:5px;
+      background-color:$red;
+    }
+
+    .skPlayer-list-index{
+      color:$gray_grandma;
+      position:absolute;
+      left:15px;
+      top:0;
+    }
+
+    .skPlayer-list-name{
+      color:$gray;
+      float:left;
+      margin-left:19px;
+      max-width:200px;
+      @include ellipsis;
+    }
+
+    .skPlayer-list-author{
+      color:$gray_grandma;
+      float:right;
+      max-width:107px;
+      @include ellipsis;
+    }
+
+  }
+
+  &.skPlayer-list-on{
+    .skPlayer-list{
+      display:block;
+    }
+  }
+
+}

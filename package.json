@@ -1,8 +1,13 @@
 {
   "name": "skplayer",
-  "version": "2.6.11",
-  "description": "a simple HTML5 music player",
-  "main": "./dist/skPlayer.min.js",
+  "version": "3.0.0",
+  "description": "A simple html5 music player",
+  "main": "dist/skPlayer.min.js",
+  "scripts": {
+    "dev": "WEBPACK_ENV=dev webpack-dev-server --progress --hot --inline --host 0.0.0.0",
+    "build": "WEBPACK_ENV=build webpack",
+    "test": "WEBPACK_ENV=test webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wangpengfei15975/skPlayer.git"
@@ -11,45 +16,21 @@
     "music",
     "player"
   ],
-  "author": {
-    "name": "Scott"
-  },
+  "author": "Scott",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wangpengfei15975/skPlayer/issues"
   },
   "homepage": "https://github.com/wangpengfei15975/skPlayer#readme",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-cssmin": "^1.0.1",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0"
-  },
-  "gitHead": "dd0e57d406503997ca7ce2e7145ae3a51689278f",
-  "_id": "skplayer@2.0.5",
-  "scripts": {},
-  "_shasum": "60bc56af7723cf1f31adcb0727b62a9da44b97ff",
-  "_from": "skplayer@latest",
-  "_npmVersion": "2.14.7",
-  "_nodeVersion": "4.2.2",
-  "_npmUser": {
-    "name": "scott15975",
-    "email": "me@chengfeilong.com"
-  },
-  "dist": {
-    "shasum": "60bc56af7723cf1f31adcb0727b62a9da44b97ff",
-    "tarball": "https://registry.npmjs.org/skplayer/-/skplayer-2.0.5.tgz"
-  },
-  "maintainers": [
-    {
-      "name": "scott15975",
-      "email": "me@chengfeilong.com"
-    }
-  ],
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/skplayer-2.0.5.tgz_1472148878379_0.4681888264603913"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/skplayer/-/skplayer-2.0.5.tgz"
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
 }
