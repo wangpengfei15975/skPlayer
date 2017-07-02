@@ -72,6 +72,13 @@ $list_border:#E9E9E9;     //列表项边框
 
   }
 
+  .skPlayer-tip-loading{
+    font-size:30px;
+    color:$gray;
+    line-height:100px;
+    text-align:center;
+  }
+
   .skPlayer-picture{
     width:100px;
     height:100px;
@@ -204,6 +211,7 @@ $list_border:#E9E9E9;     //列表项边框
         top:0;
         z-index:1;
         @include transition(.7s);
+        @include transform(translateZ(0));
       }
 
     }
@@ -416,7 +424,7 @@ $list_border:#E9E9E9;     //列表项边框
     .skPlayer-list-name{
       color:$gray;
       float:left;
-      margin-left:19px;
+      margin-left:24px;
       max-width:200px;
       @include ellipsis;
     }

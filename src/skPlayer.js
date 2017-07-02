@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.0', 'color:#D94240');
+console.log('%cSKPlayer 3.0.1', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -47,7 +47,7 @@ const baseUrl = 'http://163.opdays.com/';
 class skPlayer {
     constructor(option){
         if(instance){
-            console.error('SKPlayer只能实例化一次！');
+            console.error('SKPlayer只能存在一个实例！');
             return Object.create(null);
         }else{
             instance = true;
@@ -80,6 +80,7 @@ class skPlayer {
         this.toggleMute = this.toggleMute.bind(this);
         this.switchMode = this.switchMode.bind(this);
 
+        this.root.innerHTML = '<p class="skPlayer-tip-loading">LOADING</p>';
         if(this.type === 'file'){
             this.root.innerHTML = this.template();
             this.init();
@@ -291,7 +292,15 @@ class skPlayer {
     }
 
     switchMusic(index){
+        if(typeof index !== 'number'){
+            console.error('请输入正确的歌曲序号！');
+            return;
+        }
         index -= 1;
+        if(index < 0 || index >= this.music.length){
+            console.error('请输入正确的歌曲序号！');
+            return;
+        }
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
@@ -363,6 +372,16 @@ class skPlayer {
             this.audio.loop = true;
             this.dom.modebutton.classList.add('skPlayer-mode-loop');
         }
+    }
+
+    destroy(){
+        instance = false;
+        this.pause();
+        this.root.innerHTML = '';
+        for(let prop in this){
+            delete this[prop];
+        }
+        console.log('该实例已销毁，可重新配置 ...');
     }
 }
 
