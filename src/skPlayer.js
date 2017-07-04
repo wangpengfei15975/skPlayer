@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.2', 'color:#D94240');
+console.log('%cSKPlayer 3.0.3', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -223,9 +223,9 @@ class skPlayer {
             this.dom.timeline_played.style.width = Util.percentFormat(percent);
             this.dom.timetext_played.innerHTML = Util.timeFormat(this.audio.currentTime);
         });
-        this.audio.addEventListener('seeked', (e) => {
-            this.play();
-        });
+        //this.audio.addEventListener('seeked', (e) => {
+        //    this.play();
+        //});
         this.audio.addEventListener('ended', (e) => {
             this.next();
         });
