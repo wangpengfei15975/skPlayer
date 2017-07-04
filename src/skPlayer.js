@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.1', 'color:#D94240');
+console.log('%cSKPlayer 3.0.2', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -74,6 +74,7 @@ class skPlayer {
         this.root = this.option.element;
         this.type = this.option.music.type;
         this.music = this.option.music.source;
+        this.isMobile = /mobile/i.test(window.navigator.userAgent);
 
         this.toggle = this.toggle.bind(this);
         this.toggleList = this.toggleList.bind(this);
@@ -125,7 +126,7 @@ class skPlayer {
                 <p class="skPlayer-time">
                     <span class="skPlayer-cur">${'00:00'}</span>/<span class="skPlayer-total">${'00:00'}</span>
                 </p>
-                <div class="skPlayer-volume">
+                <div class="skPlayer-volume" style="${this.isMobile ? 'display:none;' : ''}">
                     <i class="skPlayer-icon"></i>
                     <div class="skPlayer-percent">
                         <div class="skPlayer-line"></div>
@@ -222,13 +223,18 @@ class skPlayer {
             this.dom.timeline_played.style.width = Util.percentFormat(percent);
             this.dom.timetext_played.innerHTML = Util.timeFormat(this.audio.currentTime);
         });
+        this.audio.addEventListener('seeked', (e) => {
+            this.play();
+        });
         this.audio.addEventListener('ended', (e) => {
             this.next();
         });
 
         this.dom.playbutton.addEventListener('click', this.toggle);
         this.dom.switchbutton.addEventListener('click', this.toggleList);
-        this.dom.volumebutton.addEventListener('click', this.toggleMute);
+        if(!this.isMobile){
+            this.dom.volumebutton.addEventListener('click', this.toggleMute);
+        }
         this.dom.modebutton.addEventListener('click', this.switchMode);
         this.dom.musiclist.addEventListener('click', (e) => {
             let target,index,curIndex;
@@ -254,15 +260,17 @@ class skPlayer {
                 this.audio.currentTime = percent * this.audio.duration;
             }
         });
-        this.dom.volumeline_total.addEventListener('click', (event) => {
-            let e = event || window.event;
-            let percent = (e.clientX - Util.leftDistance(this.dom.volumeline_total)) / this.dom.volumeline_total.clientWidth;
-            this.dom.volumeline_value.style.width = Util.percentFormat(percent);
-            this.audio.volume = percent;
-            if(this.audio.muted){
-                this.toggleMute();
-            }
-        });
+        if(!this.isMobile){
+            this.dom.volumeline_total.addEventListener('click', (event) => {
+                let e = event || window.event;
+                let percent = (e.clientX - Util.leftDistance(this.dom.volumeline_total)) / this.dom.volumeline_total.clientWidth;
+                this.dom.volumeline_value.style.width = Util.percentFormat(percent);
+                this.audio.volume = percent;
+                if(this.audio.muted){
+                    this.toggleMute();
+                }
+            });
+        }
     }
 
     prev(){
@@ -301,6 +309,12 @@ class skPlayer {
             console.error('请输入正确的歌曲序号！');
             return;
         }
+        if(index == this.dom.musiclist.querySelector('.skPlayer-curMusic').getAttribute('data-index')){
+            this.play();
+            return;
+        }
+        this.audio.pause();
+        this.audio.currentTime = 0;
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
@@ -353,6 +367,7 @@ class skPlayer {
     }
 
     toggleMute(){
+        //暂存问题，移动端兼容性，残留接口
         if(this.audio.muted){
             this.audio.muted = false;
             this.dom.volumebutton.classList.remove('skPlayer-quiet');
@@ -376,7 +391,7 @@ class skPlayer {
 
     destroy(){
         instance = false;
-        this.pause();
+        this.audio.pause();
         this.root.innerHTML = '';
         for(let prop in this){
             delete this[prop];
