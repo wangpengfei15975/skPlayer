@@ -313,8 +313,8 @@ class skPlayer {
             this.play();
             return;
         }
-        this.audio.pause();
-        this.audio.currentTime = 0;
+        //this.audio.pause();
+        //this.audio.currentTime = 0;
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
