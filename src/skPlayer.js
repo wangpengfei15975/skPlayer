@@ -108,7 +108,7 @@ class skPlayer {
 
     template(){
         let html = `
-            <audio class="skPlayer-source" src="${this.type === 'file' ? this.music[0].src : ''}" preload="auto"></audio>
+            <audio class="skPlayer-source" src="${this.type === 'file' ? this.music[0].src : ''}"></audio>
             <div class="skPlayer-picture">
                 <img class="skPlayer-cover" src="${this.music[0].cover}" alt="">
                 <a href="javascript:;" class="skPlayer-play-btn">
