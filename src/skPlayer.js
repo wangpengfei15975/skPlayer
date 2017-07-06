@@ -192,10 +192,6 @@ class skPlayer {
                     console.log('歌曲拉取成功！');
                     let url = JSON.parse(data).url;
                     this.audio.src = url;
-                    this.play();
-                    if(this.option.autoplay && this.isMobile){
-                        this.dom.musicitem[0].click();
-                    }
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
