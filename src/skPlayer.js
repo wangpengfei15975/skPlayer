@@ -192,6 +192,10 @@ class skPlayer {
                     console.log('歌曲拉取成功！');
                     let url = JSON.parse(data).url;
                     this.audio.src = url;
+                    this.play();
+                    if(this.option.autoplay && this.isMobile){
+                        this.dom.musicitem[0].click();
+                    }
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
@@ -318,8 +322,10 @@ class skPlayer {
             this.play();
             return;
         }
-        // this.audio.pause();
-        // this.audio.currentTime = 0;
+        if(!this.isMobile){
+            this.audio.pause();
+            this.audio.currentTime = 0;
+        }
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
@@ -339,6 +345,9 @@ class skPlayer {
                     let url = JSON.parse(data).url;
                     this.audio.src = url;
                     this.play();
+                    if(this.isMobile){
+                        this.dom.musicitem[index].click();
+                    }
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
