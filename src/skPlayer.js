@@ -206,6 +206,11 @@ class skPlayer {
             this.dom.timeline_loaded.style.width = Util.percentFormat(percent);
         };
 
+        // this.audio.addEventListener('load', (e) => {
+        //     if(this.option.autoplay && this.isMobile){
+        //         this.play();
+        //     }
+        // });
         this.audio.addEventListener('durationchange', (e) => {
             this.dom.timetext_total.innerHTML = Util.timeFormat(this.audio.duration);
             this.updateLine();
@@ -214,7 +219,7 @@ class skPlayer {
             this.updateLine();
         });
         this.audio.addEventListener('canplay', (e) => {
-            if(this.option.autoplay){
+            if(this.option.autoplay && !this.isMobile){
                 this.play();
             }
         });
@@ -313,8 +318,10 @@ class skPlayer {
             this.play();
             return;
         }
-        this.audio.pause();
-        this.audio.currentTime = 0;
+        if(!this.isMobile){
+            this.audio.pause();
+            this.audio.currentTime = 0;
+        }
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
