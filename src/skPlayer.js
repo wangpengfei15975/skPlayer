@@ -206,6 +206,11 @@ class skPlayer {
             this.dom.timeline_loaded.style.width = Util.percentFormat(percent);
         };
 
+        this.audio.addEventListener('load', (e) => {
+            if(this.option.autoplay && this.isMobile){
+                this.play();
+            }
+        });
         this.audio.addEventListener('durationchange', (e) => {
             this.dom.timetext_total.innerHTML = Util.timeFormat(this.audio.duration);
             this.updateLine();
