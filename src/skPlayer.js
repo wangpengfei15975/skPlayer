@@ -108,7 +108,7 @@ class skPlayer {
 
     template(){
         let html = `
-            <audio class="skPlayer-source" src="${this.type === 'file' ? this.music[0].src : ''}"></audio>
+            <audio class="skPlayer-source" src="${this.type === 'file' ? this.music[0].src : ''}" preload="auto"></audio>
             <div class="skPlayer-picture">
                 <img class="skPlayer-cover" src="${this.music[0].cover}" alt="">
                 <a href="javascript:;" class="skPlayer-play-btn">
@@ -214,7 +214,7 @@ class skPlayer {
             this.updateLine();
         });
         this.audio.addEventListener('canplay', (e) => {
-            if(this.option.autoplay){
+            if(this.option.autoplay && !this.isMobile){
                 this.play();
             }
         });
@@ -313,8 +313,8 @@ class skPlayer {
             this.play();
             return;
         }
-        //this.audio.pause();
-        //this.audio.currentTime = 0;
+        this.audio.pause();
+        this.audio.currentTime = 0;
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
@@ -343,19 +343,19 @@ class skPlayer {
     }
 
     play(){
-        if(this.audio.paused){
+        // if(this.audio.paused){
             this.audio.play();
             this.dom.playbutton.classList.add('skPlayer-pause');
             this.dom.cover.classList.add('skPlayer-pause');
-        }
+        // }
     }
 
     pause(){
-        if(!this.audio.paused){
+        // if(!this.audio.paused){
             this.audio.pause();
             this.dom.playbutton.classList.remove('skPlayer-pause');
             this.dom.cover.classList.remove('skPlayer-pause');
-        }
+        // }
     }
 
     toggle(){
