@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.4', 'color:#D94240');
+console.log('%cSKPlayer 3.0.5', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -81,12 +81,12 @@ class skPlayer {
         this.toggleMute = this.toggleMute.bind(this);
         this.switchMode = this.switchMode.bind(this);
 
-        this.root.innerHTML = '<p class="skPlayer-tip-loading">LOADING</p>';
         if(this.type === 'file'){
             this.root.innerHTML = this.template();
             this.init();
             this.bind();
         }else if(this.type === 'cloud'){
+            this.root.innerHTML = '<p class="skPlayer-tip-loading">LOADING</p>';
             Util.ajax({
                 url: baseUrl + 'playlist?id=' + this.music,
                 beforeSend: () => {
@@ -318,10 +318,10 @@ class skPlayer {
             this.play();
             return;
         }
-        if(!this.isMobile){
-            this.audio.pause();
-            this.audio.currentTime = 0;
-        }
+        //if(!this.isMobile){
+        //    this.audio.pause();
+        //    this.audio.currentTime = 0;
+        //}
         this.dom.musiclist.querySelector('.skPlayer-curMusic').classList.remove('skPlayer-curMusic');
         this.dom.musicitem[index].classList.add('skPlayer-curMusic');
         this.dom.name.innerHTML = this.music[index].name;
