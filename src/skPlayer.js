@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.3', 'color:#D94240');
+console.log('%cSKPlayer 3.0.4', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -341,6 +341,7 @@ class skPlayer {
                     let url = JSON.parse(data).url;
                     this.audio.src = url;
                     this.play();
+                    //暂存问题，移动端兼容性
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
@@ -374,7 +375,7 @@ class skPlayer {
     }
 
     toggleMute(){
-        //暂存问题，移动端兼容性，残留接口
+        //暂存问题，移动端兼容性
         if(this.audio.muted){
             this.audio.muted = false;
             this.dom.volumebutton.classList.remove('skPlayer-quiet');
