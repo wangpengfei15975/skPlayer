@@ -341,9 +341,6 @@ class skPlayer {
                     let url = JSON.parse(data).url;
                     this.audio.src = url;
                     this.play();
-                    if(this.isMobile){
-                        this.dom.musicitem[index].click();
-                    }
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
