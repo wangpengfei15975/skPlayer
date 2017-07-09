@@ -186,7 +186,6 @@ $list_border:#E9E9E9;     //列表项边框
       width:250px;
       height:6px;
       background-color:$line;
-      border-radius:2px;
       margin:9px 0;
       cursor:pointer;
       overflow:hidden;
@@ -387,20 +386,21 @@ $list_border:#E9E9E9;     //列表项边框
     }
 
     &::-webkit-scrollbar{
-      width:16px;
-      height:16px;
-      background-color:$white;
+      width:12px;
+      //height:16px;
+      //background-color:$white;
+      border-left:1px solid $list_border;
     }
 
     &::-webkit-scrollbar-track{
-      box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-      border-radius:10px;
-      background-color:$white;
+      //box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      //border-radius:10px;
+      //background-color:$white;
     }
 
     &::-webkit-scrollbar-thumb{
       box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-      border-radius:10px;
+      //border-radius:10px;
       background-color:$red;
     }
 

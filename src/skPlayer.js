@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.5', 'color:#D94240');
+console.log('%cSKPlayer 3.0.6', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -245,8 +245,10 @@ class skPlayer {
             let target,index,curIndex;
             if(e.target.tagName.toUpperCase() === 'LI'){
                 target = e.target;
-            }else{
+            }else if(e.target.parentElement.tagName.toUpperCase() === 'LI'){
                 target = e.target.parentElement;
+            }else{
+                return;
             }
             index = parseInt(target.getAttribute('data-index'));
             curIndex = parseInt(this.dom.musiclist.querySelector('.skPlayer-curMusic').getAttribute('data-index'));
