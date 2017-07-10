@@ -386,21 +386,15 @@ $list_border:#E9E9E9;     //列表项边框
     }
 
     &::-webkit-scrollbar{
-      width:12px;
-      //height:16px;
-      //background-color:$white;
-      border-left:1px solid $list_border;
+      width:14px;
     }
 
     &::-webkit-scrollbar-track{
-      //box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-      //border-radius:10px;
-      //background-color:$white;
+      border-left:1px solid $list_border;
     }
 
     &::-webkit-scrollbar-thumb{
-      box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-      //border-radius:10px;
+      box-shadow:inset 0 0 7px rgba(0,0,0,.3);
       background-color:$red;
     }
 
