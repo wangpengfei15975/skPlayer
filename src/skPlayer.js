@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.6', 'color:#D94240');
+console.log('%cSKPlayer 3.0.7', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -206,11 +206,6 @@ class skPlayer {
             this.dom.timeline_loaded.style.width = Util.percentFormat(percent);
         };
 
-        // this.audio.addEventListener('load', (e) => {
-        //     if(this.option.autoplay && this.isMobile){
-        //         this.play();
-        //     }
-        // });
         this.audio.addEventListener('durationchange', (e) => {
             this.dom.timetext_total.innerHTML = Util.timeFormat(this.audio.duration);
             this.updateLine();
@@ -228,9 +223,9 @@ class skPlayer {
             this.dom.timeline_played.style.width = Util.percentFormat(percent);
             this.dom.timetext_played.innerHTML = Util.timeFormat(this.audio.currentTime);
         });
-        //this.audio.addEventListener('seeked', (e) => {
-        //    this.play();
-        //});
+        this.audio.addEventListener('seeked', (e) => {
+            this.play();
+        });
         this.audio.addEventListener('ended', (e) => {
             this.next();
         });
