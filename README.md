@@ -1,6 +1,7 @@
 # skPlayer 3.0
 ![npm](https://img.shields.io/npm/v/skplayer.svg) ![npm](https://img.shields.io/npm/l/skplayer.svg) ![npm](https://img.shields.io/npm/dt/skplayer.svg) ![npm](https://img.shields.io/badge/made%20by-Scott-orange.svg)  
-一款简约好看的HTML5音乐播放器
+一款简约好看的HTML5音乐播放器  
+> 由于接口问题，修复了服务器接口，烦请更新`v3.0.8`
 
 # 特点
 * 支持自配置音乐文件 or 指定网易云音乐歌单两种方式
