@@ -1,5 +1,5 @@
 //SKPlayer
-console.log('%cSKPlayer 3.0.8', 'color:#D94240');
+console.log('%cSKPlayer 3.0.7', 'color:#D94240');
 
 require('./skPlayer.scss');
 
@@ -42,7 +42,7 @@ const Util = {
 };
 
 let instance = false;
-const baseUrl = 'http://120.79.36.48/';
+const baseUrl = 'http://163.opdays.com/';
 
 class skPlayer {
     constructor(option){
@@ -88,7 +88,7 @@ class skPlayer {
         }else if(this.type === 'cloud'){
             this.root.innerHTML = '<p class="skPlayer-tip-loading">LOADING</p>';
             Util.ajax({
-                url: baseUrl + 'playlist/detail?id=' + this.music,
+                url: baseUrl + 'playlist?id=' + this.music,
                 beforeSend: () => {
                     console.log('SKPlayer正在努力的拉取歌单 ...');
                 },
@@ -184,21 +184,14 @@ class skPlayer {
         this.dom.musicitem[0].className = 'skPlayer-curMusic';
         if(this.type === 'cloud'){
             Util.ajax({
-                url: baseUrl + 'music/url?id=' + this.music[0].song_id,
+                url: baseUrl + 'song/detail?id=' + this.music[0].song_id,
                 beforeSend: () => {
                     console.log('SKPlayer正在努力的拉取歌曲 ...');
                 },
                 success: (data) => {
+                    console.log('歌曲拉取成功！');
                     let url = JSON.parse(data).url;
-                    if(url !== null){
-                        console.log('歌曲拉取成功！');
-                        this.audio.src = url;
-                    }else{
-                        console.log('歌曲拉取失败！ 资源无效！');
-                        if(this.music.length !== 1){
-                            this.next();
-                        }
-                    }
+                    this.audio.src = url;
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
@@ -336,23 +329,16 @@ class skPlayer {
             this.play();
         }else if(this.type === 'cloud'){
             Util.ajax({
-                url: baseUrl + 'music/url?id=' + this.music[index].song_id,
+                url: baseUrl + 'song/detail?id=' + this.music[index].song_id,
                 beforeSend: () => {
                     console.log('SKPlayer正在努力的拉取歌曲 ...');
                 },
                 success: (data) => {
+                    console.log('歌曲拉取成功！');
                     let url = JSON.parse(data).url;
-                    if(url !== null){
-                        console.log('歌曲拉取成功！');
-                        this.audio.src = url;
-                        this.play();
-                        //暂存问题，移动端兼容性
-                    }else{
-                        console.log('歌曲拉取失败！ 资源无效！');
-                        if(this.music.length !== 1){
-                            this.next();
-                        }
-                    }
+                    this.audio.src = url;
+                    this.play();
+                    //暂存问题，移动端兼容性
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
